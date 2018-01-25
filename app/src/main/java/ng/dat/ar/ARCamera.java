@@ -144,11 +144,11 @@ public class ARCamera extends ViewGroup implements SurfaceHolder.Callback {
         }
 
         int orientation;
-        if(info.facing==Camera.CameraInfo.CAMERA_FACING_FRONT){
+        if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
             orientation = (info.orientation + degrees) % 360;
-            orientation =  (360 - orientation) % 360;
+            orientation = (360 - orientation) % 360;
         } else {
-            orientation = (info.orientation -degrees + 360) % 360;
+            orientation = (info.orientation - degrees + 360) % 360;
         }
 
         return orientation;
@@ -196,7 +196,7 @@ public class ARCamera extends ViewGroup implements SurfaceHolder.Callback {
             }
         }
 
-        if(optimalSize == null) {
+        if (optimalSize == null) {
             optimalSize = sizes.get(0);
         }
 
@@ -204,7 +204,7 @@ public class ARCamera extends ViewGroup implements SurfaceHolder.Callback {
     }
 
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-        if(camera != null) {
+        if (camera != null) {
             this.cameraWidth = width;
             this.cameraHeight = height;
 
@@ -222,7 +222,7 @@ public class ARCamera extends ViewGroup implements SurfaceHolder.Callback {
     private void generateProjectionMatrix() {
         float ratio = (float) this.cameraWidth / this.cameraHeight;
         final int OFFSET = 0;
-        final float LEFT =  -ratio;
+        final float LEFT = -ratio;
         final float RIGHT = ratio;
         final float BOTTOM = -1;
         final float TOP = 1;
